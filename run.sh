@@ -5,7 +5,13 @@
 make clean
 make
 
-./bin/ffa < data 15 16 > ffa_res
-# cat ffa_res | sort 
+./ffa < data 15 16 > ffa_res
+cat ffa_res | sort -k1 -k2 -n > tmp
+mv tmp ffa_res
 
-./bin/pr > pr_res
+./pr > pr_res
+cat pr_res | sort -k1 -k2 -n > tmp
+mv tmp pr_res
+
+head ffa_res
+head pr_res
