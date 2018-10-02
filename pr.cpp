@@ -223,8 +223,8 @@ double Graph::getMaxFlow(int s, int t)
 
 	// ver.back() returns last Vertex, whose 
 	// e_flow will be final maximum flow
-    cout << endl; 
-    for(int i = 0; i < 260; i++) cout << edge[i].u << ' ' << edge[i].v << ' ' << edge[i].capacity - edge[i].flow << endl;
+    cout << "output begins: capacity - flow for each edge" << endl; 
+    for(int i = 0; i < 260; i++) cout << "u:" <<  edge[i].u << " v: " << edge[i].v << " residual(maybe) cap: " << edge[i].capacity - edge[i].flow << endl;
 	return ver.back().e_flow; 
 } 
 
@@ -233,7 +233,7 @@ int main()
 { 
 
 	// Creating above shown flow network 
-    string e_file_name = "./tests/Wei_test2";
+    string e_file_name = "./data";
     ifstream e_infile(e_file_name);
     int tm1, tm2;
     double tm3;
@@ -241,7 +241,6 @@ int main()
 	Graph g(tm1); 
     cout << tm1 << ' ' << tm2 << endl;
     while(e_infile >> tm1 >> tm2 >> tm3){
-        cout << tm1-1 << ' ' << tm2-1 << ' ' << tm3 << endl;
         g.addEdge(tm1-1, tm2-1, tm3);
         g.addEdge(tm2-1, tm1-1, tm3); 
     }
